@@ -9,6 +9,7 @@ dotenv.config();
 import { IsAuthenticatedMiddleware } from './middlewares/is-authenticated/is-authenticated.middleware';
 import { ForumModule } from './forum/forum.module';
 import { CategoryModule } from './category/category.module';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -26,6 +27,7 @@ import { CategoryModule } from './category/category.module';
     }),
     ForumModule,
     CategoryModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
