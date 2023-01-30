@@ -8,6 +8,6 @@ export class Topic extends TimesTampEntity {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ default: () => false })
   solved: boolean;
 }

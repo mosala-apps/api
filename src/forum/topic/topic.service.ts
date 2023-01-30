@@ -1,19 +1,26 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateTopicDto } from './dto/create-topic.dto';
 import { UpdateTopicDto } from './dto/update-topic.dto';
+import { Topic } from './entities/topic.entity';
 
 @Injectable()
 export class TopicService {
+  constructor(
+    @InjectRepository(Topic)
+    private readonly topicRepository: Repository<Topic>,
+  ) {}
   create(createTopicDto: CreateTopicDto) {
-    return 'This action adds a new topic';
+    return this.topicRepository.save(createTopicDto);
   }
 
-  findAll() {
-    return `This action returns all topic`;
+  async findAll(): Promise<Topic[]> {
+    return await this.topicRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} topic`;
+  async findOne(id: number): Promise<Partial<Topic>> {
+    return await this.topicRepository.findBy(id);
   }
 
   update(id: number, updateTopicDto: UpdateTopicDto) {
@@ -23,4 +30,5 @@ export class TopicService {
   remove(id: number) {
     return `This action removes a #${id} topic`;
   }
+
 }
