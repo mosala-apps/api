@@ -10,6 +10,7 @@ import { IsAuthenticatedMiddleware } from './middlewares/is-authenticated/is-aut
 import { ForumModule } from './forum/forum.module';
 import { CategoryModule } from './category/category.module';
 import { AuthModule } from './auth/auth.module';
+import { TalentModule } from './talent/talent.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -28,6 +29,7 @@ import { AuthModule } from './auth/auth.module';
     ForumModule,
     CategoryModule,
     AuthModule,
+    TalentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
