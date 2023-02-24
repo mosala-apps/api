@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Topic } from '../../forum/topic/entities/topic.entity';
 import { TimesTampEntity } from '../../times-tamp/times-tamp.entity';
 
 @Entity('categories')
@@ -8,4 +15,7 @@ export class Category extends TimesTampEntity {
 
   @Column()
   name: number;
+
+  @OneToMany(() => Topic, (topic) => topic.category)
+  topics: Array<Topic>;
 }

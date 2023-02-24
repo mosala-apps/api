@@ -20,7 +20,8 @@ export class TopicService {
   }
 
   async findOne(id: number): Promise<Partial<Topic>> {
-    return await this.topicRepository.findBy(id);
+    const topic = await this.topicRepository.findOneOrFail({ where: { id } });
+    return topic;
   }
 
   update(id: number, updateTopicDto: UpdateTopicDto) {
@@ -30,5 +31,4 @@ export class TopicService {
   remove(id: number) {
     return `This action removes a #${id} topic`;
   }
-
 }

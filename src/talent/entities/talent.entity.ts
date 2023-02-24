@@ -39,6 +39,6 @@ export class Talent {
   @JoinColumn()
   user: User;
 
-  @OneToMany(() => Project, (Project)=> Project.talent))
-  projects: Project;
+  @OneToMany(() => Project, (project) => project.talent)
+  projects: Array<Project>;
 }

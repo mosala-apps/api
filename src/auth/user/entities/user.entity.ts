@@ -14,4 +14,7 @@ export class User extends TimesTampEntity {
 
   @Column()
   password: string;
+
+  @Column()
+  isActive: boolean;
 }

@@ -12,6 +12,7 @@ import { CategoryModule } from './category/category.module';
 import { AuthModule } from './auth/auth.module';
 import { TalentModule } from './talent/talent.module';
 import { ProjectModule } from './project/project.module';
+import { ClientModule } from './client/client.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -32,6 +33,7 @@ import { ProjectModule } from './project/project.module';
     AuthModule,
     TalentModule,
     ProjectModule,
+    ClientModule,
   ],
   controllers: [AppController],
   providers: [AppService],
